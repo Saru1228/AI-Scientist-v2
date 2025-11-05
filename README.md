@@ -58,6 +58,8 @@ conda install conda-forge::chktex
 pip install -r requirements.txt
 ```
 
+Installation usually takes no more than one hour.
+
 ### Supported Models and API Keys
 
 #### OpenAI Models
@@ -151,6 +153,8 @@ python launch_scientist_bfts.py \
 ```
 
 Once the initial experimental stage is complete, you will find a timestamped log folder inside the `experiments/` directory. Navigate to `experiments/"timestamp_ideaname"/logs/0-run/` within that folder to find the tree visualization file `unified_tree_viz.html`.
+After all experiment stages are complete, the writeup stage begins. The writeup stage typically takes about 20 to 30 minutes in total. Once it finishes, you should see `timestamp_ideaname.pdf` in the `timestamp_ideaname` folder.
+For this example run, all stages typically finish within several hours.
 
 ## Citing The AI Scientist-v2
 
