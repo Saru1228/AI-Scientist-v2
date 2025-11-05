@@ -1,6 +1,5 @@
 from functools import wraps
 from typing import Dict, Optional, List
-import tiktoken
 from collections import defaultdict
 import asyncio
 from datetime import datetime
