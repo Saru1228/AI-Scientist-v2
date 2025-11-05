@@ -1,0 +1,7 @@
+
+Title: Building an Individual-Based Model for Insect Swarm Dynamics Using Empirical 3D Trajectory Data
+Keywords: collective behavior, insect swarms, agent-based modeling, trajectory data, data-driven simulation
+TL;DR: Use real 3D trajectory data of Chironomus riparius swarms to calibrate and validate an individual-based model that reproduces emergent swarm stability and kinematic statistics.
+Abstract:
+This study aims to construct an individual-based model (IBM) of laboratory insect swarms using the three-dimensional, time-resolved trajectory dataset provided by Sinhuber et al. (2019). The dataset contains positions, velocities, and accelerations of individual midges within swarms of varying sizes, captured at 100 Hz using a three-camera stereoscopic system. By analyzing empirical kinematic distributions (speed, acceleration, interaction range) and fitting agent-level behavioral rules, we will develop a minimal dynamical model capable of reproducing swarm cohesion, isotropy, and statistical features observed in the data. The model will be validated through quantitative comparisons of pairwise velocity correlations, swarm density profiles, and trajectory persistence. This approach bridges empirical observation and computational modeling to enhance mechanistic understanding of collective behavior in insect swarms and provides a reproducible baseline for further bio-inspired swarm intelligence studies.
+

@@ -1,10 +1,10 @@
 import argparse
 import json
+import os
 import os.path as osp
 import re
 import traceback
 from typing import Any, Dict, List
-
 import sys
 
 sys.path.append(osp.join(osp.dirname(__file__), ".."))
@@ -14,15 +14,70 @@ from ai_scientist.llm import (
     get_response_from_llm,
 )
 
-from ai_scientist.tools.semantic_scholar import SemanticScholarSearchTool
+# ============================================================
+# 🔧 Replacement for SemanticScholar: GPT-based Web Search Tool
+# ============================================================
+
 from ai_scientist.tools.base_tool import BaseTool
+import openai
 
-# Create tool instances
-semantic_scholar_tool = SemanticScholarSearchTool()
+class GPTWebSearchTool(BaseTool):
+    """
+    Replacement for SemanticScholarSearchTool.
+    Performs a literature-style or web-style search using OpenAI GPT API.
+    The interface is identical: use_tool(query: str) -> str
+    """
 
-# Define tools at the top of the file
+    def __init__(self):
+        super().__init__(
+            name="SearchWeb",
+            description=(
+                "Use OpenAI's model to perform a web-like or literature-style search. "
+                "Given a query, summarize relevant academic or web findings that may inform idea generation."
+            ),
+            parameters={
+                "query": {
+                    "type": "string",
+                    "description": "The search query for academic or web information."
+                }
+            }
+        )
+
+    def use_tool(self, query: str) -> str:
+        print(f"🔍 [GPTWebSearch] Searching the web for: {query}")
+        try:
+            import openai
+            client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+            completion = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are an AI research assistant that summarizes up-to-date web and academic information for idea generation."
+                    },
+                    {
+                        "role": "user",
+                        "content": f"Search the web for: {query}\nSummarize the most relevant academic and web findings that could inform scientific idea generation. Cite known sources if possible."
+                    }
+                ],
+                temperature=0.7,
+                max_tokens=800,
+            )
+            answer = completion.choices[0].message.content
+            return f"[GPTWebSearch Results for '{query}']\n{answer}"
+        except Exception as e:
+            return f"[GPTWebSearch Error] {str(e)}"
+
+
+
+# ============================================================
+# Define available tools
+# ============================================================
+
+gpt_web_tool = GPTWebSearchTool()
+
 tools = [
-    semantic_scholar_tool,
+    gpt_web_tool,
     {
         "name": "FinalizeIdea",
         "description": """Finalize your idea by providing the idea details.
@@ -30,18 +85,17 @@ tools = [
 The IDEA JSON should include the following fields:
 - "Name": A short descriptor of the idea. Lowercase, no spaces, underscores allowed.
 - "Title": A catchy and informative title for the proposal.
-- "Short Hypothesis": A concise statement of the main hypothesis or research question. Clarify the need for this specific direction, ensure this is the best setting to investigate this idea, and there are not obvious other simpler ways to answer the question.
-- "Related Work": A brief discussion of the most relevant related work and how the proposal clearly distinguishes from it, and is not a trivial extension.
-- "Abstract": An abstract that summarizes the proposal in conference format (approximately 250 words).
-- "Experiments": A list of experiments that would be conducted to validate the proposal. Ensure these are simple and feasible. Be specific in exactly how you would test the hypothesis, and detail precise algorithmic changes. Include the evaluation metrics you would use.
+- "Short Hypothesis": A concise statement of the main hypothesis or research question.
+- "Related Work": A brief discussion of the most relevant related work and how the proposal clearly distinguishes from it.
+- "Abstract": A 250-word conference-style abstract.
+- "Experiments": A list of experiments to validate the hypothesis.
 - "Risk Factors and Limitations": A list of potential risks and limitations of the proposal.""",
     },
 ]
 
-# Create a tools dictionary for easy lookup
+# Create lookup dicts (same as before)
 tools_dict = {tool.name: tool for tool in tools if isinstance(tool, BaseTool)}
 
-# Create a string with the tool descriptions
 tool_descriptions = "\n\n".join(
     (
         f"- **{tool.name}**: {tool.description}"
@@ -51,13 +105,15 @@ tool_descriptions = "\n\n".join(
     for tool in tools
 )
 
-# Extract tool names for the prompt
 tool_names = [
     f'"{tool.name}"' if isinstance(tool, BaseTool) else f'"{tool["name"]}"'
     for tool in tools
 ]
 tool_names_str = ", ".join(tool_names)
 
+# ============================================================
+# System prompt templates
+# ============================================================
 system_prompt = f"""You are an experienced AI researcher who aims to propose high-impact research ideas resembling exciting grant proposals. Feel free to propose any novel ideas or experiments; make sure they are novel. Be very creative and think out of the box. Each proposal should stem from a simple and elegant question, observation, or hypothesis about the topic. For example, they could involve very interesting and simple interventions or investigations that explore new possibilities or challenge existing assumptions. Clearly clarify how the proposal distinguishes from the existing literature.
 
 Ensure that the proposal does not require resources beyond what an academic lab could afford. These proposals should lead to papers that are publishable at top ML conferences.

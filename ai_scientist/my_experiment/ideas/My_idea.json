@@ -1,0 +1,87 @@
+[
+    {
+        "Name": "environmental_impacts_on_swarm_dynamics",
+        "Title": "Exploring Environmental Impacts on Insect Swarm Dynamics Using 3D Trajectory Data",
+        "Short Hypothesis": "Environmental variability significantly influences the emergent behavior and decision-making processes in insect swarms.",
+        "Related Work": "Existing studies have primarily focused on collective behavior and decision-making in insect swarms using idealized conditions. This proposal distinguishes itself by integrating environmental perturbations, enhancing the understanding of how swarms adapt to real-world conditions.",
+        "Abstract": "This research aims to investigate the impact of environmental variability on the collective behavior of insect swarms, utilizing three-dimensional trajectory data of Chironomus riparius swarms recorded at 100 Hz. By systematically introducing controlled environmental factors\u2014such as varying light conditions, noise levels, and spatial constraints\u2014we will analyze changes in individual and collective kinematics, interactions, and decision-making processes. The study will employ an individual-based model (IBM) calibrated with empirical data to simulate swarm dynamics under varying conditions. Key metrics, including swarm cohesion, density profiles, and trajectory persistence, will be assessed to quantify the effects of environmental perturbations. By bridging empirical observations with computational modeling, this work aims to provide insights into the adaptive strategies of swarms in response to fluctuating environments, ultimately contributing to the fields of bio-inspired robotics and optimization algorithms.",
+        "Experiments": [
+            "Collect 3D trajectory data of swarms under varying environmental conditions (e.g., light intensity, background noise).",
+            "Develop an individual-based model that incorporates environmental factors and calibrate it with empirical data.",
+            "Analyze the effects of environmental perturbations on swarm kinematics, cohesion, and decision-making using statistical comparisons."
+        ],
+        "Risk Factors and Limitations": [
+            "Environmental conditions may be difficult to control precisely in laboratory settings, potentially introducing noise.",
+            "The model may oversimplify complex interactions that occur in natural settings.",
+            "Limited generalizability if findings are based on a single species of insect."
+        ]
+    },
+    {
+        "Name": "social_interactions_in_swarm_decision_making",
+        "Title": "Unraveling the Role of Social Interactions in Individual Decision-Making within Insect Swarms",
+        "Short Hypothesis": "Social interactions significantly modify individual decision-making processes in insect swarms, particularly under varying environmental conditions.",
+        "Related Work": "While existing research has focused on the mechanics of swarm behavior and individual movement rules, few studies have explicitly examined how social interactions shape these behaviors in real-world scenarios. This proposal differentiates itself by integrating social dynamics into the modeling framework, utilizing empirical trajectory data to enhance understanding of individual-level decision-making.",
+        "Abstract": "This study aims to explore the influence of social interactions on individual decision-making within swarms of Chironomus riparius, using three-dimensional trajectory data captured at 100 Hz. The empirical dataset allows for an in-depth analysis of how local interactions among individuals alter their movement decisions, particularly under varying environmental conditions. By developing an individual-based model (IBM) that incorporates social dynamics, we will simulate swarm behavior and assess how these interactions affect collective outcomes such as cohesion, alignment, and responsiveness to environmental changes. The model will be validated by comparing the predicted dynamics with empirical observations, including changes in trajectory patterns and decision-making processes. This research not only enhances our understanding of collective behavior in insect swarms but also provides insights that could be applied to optimize algorithms in swarm robotics and artificial intelligence.",
+        "Experiments": [
+            "Analyze the empirical dataset to extract patterns of social interactions among individuals in swarms.",
+            "Develop an individual-based model that incorporates social interaction parameters and calibrate it with the empirical data.",
+            "Conduct simulations to examine how variations in social interactions influence individual decision-making and overall swarm dynamics under different environmental conditions."
+        ],
+        "Risk Factors and Limitations": [
+            "The complexity of social interactions may be challenging to capture accurately within the model.",
+            "Variability in individual behavior could lead to inconsistencies in model predictions.",
+            "Findings may be limited to the specific species studied, reducing generalizability to other swarming insects."
+        ]
+    },
+    {
+        "Name": "individual_variability_in_swarm_decision_making",
+        "Title": "Investigating the Role of Individual Variability in Decision-Making Processes within Insect Swarms",
+        "Short Hypothesis": "Individual variability significantly enhances collective decision-making and adaptability within insect swarms, particularly in uncertain and dynamic environments.",
+        "Related Work": "Previous studies have primarily focused on uniform behaviors within swarms and their emergent properties. This proposal distinguishes itself by examining how individual differences in behavior, such as risk aversion and aggressiveness, affect overall swarm dynamics and decision-making processes in real-world scenarios.",
+        "Abstract": "This research aims to explore the impact of individual variability on collective decision-making within swarms of Chironomus riparius. Using detailed three-dimensional trajectory data captured at 100 Hz, we will analyze how differences in individual traits\u2014such as speed, responsiveness to neighbors, and decision thresholds\u2014contribute to swarm adaptability in uncertain environments. We will develop an individual-based model (IBM) that incorporates these variabilities, allowing us to simulate and quantify how they influence collective behavior, including cohesion, alignment, and responsiveness to environmental changes. By comparing model predictions with empirical observations, we will assess the role of individual differences in enhancing swarm resilience and performance. This study bridges empirical data and computational modeling, providing insights that extend our understanding of collective intelligence in biological systems and potential applications in swarm robotics and AI.",
+        "Experiments": [
+            "Analyze the empirical trajectory dataset to categorize individual variability in behavior (e.g., speed, interaction distance).",
+            "Develop an IBM that incorporates individual variability parameters and calibrate it with empirical data.",
+            "Conduct simulations to assess how variations in individual behaviors affect collective decision-making and swarm dynamics under different environmental conditions."
+        ],
+        "Risk Factors and Limitations": [
+            "Capturing and quantifying individual variability may introduce complexity, making it difficult to derive clear conclusions.",
+            "The model may struggle to accurately represent interactions among individuals with highly variable behaviors.",
+            "Generalizability of findings may be limited if the study focuses solely on Chironomus riparius."
+        ]
+    },
+    {
+        "Name": "individual_learning_in_swarm_dynamics",
+        "Title": "Exploring the Impact of Individual Learning on Collective Decision-Making in Insect Swarms",
+        "Short Hypothesis": "Individual learning significantly enhances collective decision-making processes in insect swarms, particularly under dynamic environmental conditions.",
+        "Related Work": "Previous research has primarily focused on static interaction rules and environmental influences on swarm behavior. This proposal distinguishes itself by investigating how individual learning from past experiences influences decision-making and collective dynamics, thus providing a more nuanced understanding of swarm intelligence.",
+        "Abstract": "This study aims to explore the role of individual learning in shaping collective decision-making within swarms of Chironomus riparius. Utilizing a high-resolution, three-dimensional trajectory dataset recorded at 100 Hz, we will analyze how individuals' past experiences affect their interactions and movement decisions within swarms. By developing an individual-based model (IBM) that incorporates learning mechanisms, we will simulate swarm behavior and assess the impact of learned experiences on cohesion, responsiveness, and adaptability in dynamic environments. The model will be validated through quantitative comparisons of trajectory patterns and decision-making processes with empirical observations. This research not only enhances our understanding of collective behavior in insect swarms but also provides insights applicable to swarm robotics and adaptive algorithms in artificial intelligence.",
+        "Experiments": [
+            "Analyze the trajectory dataset to identify instances where individual behaviors change based on past experiences or interactions.",
+            "Develop an IBM that incorporates learning parameters (e.g., reinforcement learning) and calibrate it with empirical data.",
+            "Conduct simulations to assess how individual learning impacts collective decision-making and swarm dynamics under varying environmental conditions."
+        ],
+        "Risk Factors and Limitations": [
+            "Capturing and quantifying learning processes may introduce complexity, complicating the analysis and interpretation of results.",
+            "The model's capacity to accurately represent learning mechanisms may be limited by the quality and resolution of the trajectory data.",
+            "Generalizability may be restricted if findings are primarily based on a single species of insect."
+        ]
+    },
+    {
+        "Name": "sensory_integration_in_swarm_decision_making",
+        "Title": "Exploring the Role of Multi-Modal Sensory Integration in Collective Decision-Making of Insect Swarms",
+        "Short Hypothesis": "Multi-modal sensory integration significantly enhances collective decision-making processes in insect swarms, leading to improved adaptability and efficiency.",
+        "Related Work": "Previous research has primarily focused on individual movement rules and environmental influences on swarm behavior. However, the role of multi-modal sensory integration in shaping these behaviors remains largely unexplored. This proposal aims to fill this gap by investigating how different sensory modalities interact and contribute to collective decision-making in swarms.",
+        "Abstract": "This study aims to investigate the influence of multi-modal sensory integration on collective decision-making processes within swarms of Chironomus riparius. By utilizing a high-resolution, three-dimensional trajectory dataset recorded at 100 Hz, we will analyze how different sensory cues\u2014visual, olfactory, and tactile\u2014affect individual behaviors and interactions within swarms. We will develop an individual-based model (IBM) that incorporates sensory integration mechanisms, allowing us to simulate swarm dynamics under varying sensory conditions. Key metrics such as swarm cohesion, responsiveness to environmental changes, and decision-making efficiency will be assessed to quantify the effects of sensory integration. This research not only enhances our understanding of collective behavior in insect swarms but also provides insights applicable to optimizing algorithms in swarm robotics and artificial intelligence, where sensory integration is crucial for effective navigation and decision-making.",
+        "Experiments": [
+            "Conduct experiments to systematically manipulate sensory modalities (e.g., visual cues, odor presence) and record changes in swarm behavior.",
+            "Develop an IBM that incorporates sensory integration parameters and calibrate it with empirical data.",
+            "Analyze the impact of different sensory conditions on swarm dynamics, including cohesion, responsiveness, and decision-making efficiency."
+        ],
+        "Risk Factors and Limitations": [
+            "Manipulating sensory modalities in laboratory settings may introduce confounding variables.",
+            "The complexity of sensory interactions may be challenging to quantify and model accurately.",
+            "Findings may be limited to the specific species studied, reducing generalizability to other swarming insects."
+        ]
+    }
+]
